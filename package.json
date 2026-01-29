@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-telegram-dashboard",
+  "version": "1.0.0",
+  "description": "Sistema de informacion Telegram con API, bot y dashboard",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node --test",
+    "validate": "python3 scripts/validate_setup.py"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-telegram-bot-api": "^0.61.0",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

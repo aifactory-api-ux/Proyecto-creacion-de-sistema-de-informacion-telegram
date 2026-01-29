@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Telegram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;600&family=Fraunces:opsz,wght@9..144,600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient-shape one" aria-hidden="true"></div>
+    <div class="ambient-shape two" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Telegram Intelligence Hub</p>
+        <h1>Mensajes y estadisticas en tiempo casi real</h1>
+        <p class="subtitle">
+          Panel operativo para monitorear actividad, usuarios y mensajes
+          almacenados desde el bot.
+        </p>
+        <div class="hero-actions">
+          <button id="refreshBtn" class="primary">Actualizar datos</button>
+          <div class="status" id="statusBadge">Listo</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h2>Resumen rapido</h2>
+        <p>
+          Consulta de forma centralizada la base de datos del bot y valida
+          el ritmo de conversaciones.
+        </p>
+        <ul class="hero-list">
+          <li>Actualizacion manual o automatica</li>
+          <li>Alertas de conectividad</li>
+          <li>Consulta filtrada por texto</li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="stats-grid" aria-label="Estadisticas generales">
+        <article class="stat-card">
+          <div class="stat-label">Usuarios</div>
+          <div class="stat-value" id="statUsers">0</div>
+          <div class="stat-meta">Registrados</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Mensajes</div>
+          <div class="stat-value" id="statMessages">0</div>
+          <div class="stat-meta">Acumulados</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-label">Ultimo mensaje</div>
+          <div class="stat-value" id="statLast">--</div>
+          <div class="stat-meta">Marca de tiempo</div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Mensajes recientes</h2>
+            <p>Listado cronologico con metadatos del usuario y chat.</p>
+          </div>
+          <div class="controls">
+            <label class="input">
+              <span>Buscar</span>
+              <input id="searchInput" type="search" placeholder="Texto o usuario">
+            </label>
+            <label class="input">
+              <span>Limite</span>
+              <select id="limitSelect">
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="table">
+          <div class="table-row header">
+            <span>Hora</span>
+            <span>Usuario</span>
+            <span>Chat</span>
+            <span>Mensaje</span>
+          </div>
+          <div id="messagesBody" class="table-body">
+            <div class="table-row empty">Sin datos disponibles</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="alerts" id="alertArea" aria-live="polite"></section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        Panel interno para operaciones del bot de Telegram.
+      </div>
+      <div class="footer-meta">Actualiza para sincronizar datos.</div>
+    </footer>
+  </body>
+</html>
